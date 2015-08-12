@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  get 'equipment/new'
+
+  get 'equipment/index'
+
+  get 'equipment/edit'
+
+  get 'equipment/show'
+
+  get 'equipment/destroy'
+
+  get 'equipment/new'
+
+  get 'equipment/index'
+
+  get 'equipment/edit'
+
+  get 'equipment/show'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
