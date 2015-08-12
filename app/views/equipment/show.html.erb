@@ -1,2 +1,9 @@
-<h1>Equipment#show</h1>
-<p>Find me in app/views/equipment/show.html.erb</p>
+<div class="jumbotron">
+<h1>Add Successful!</h1>
+<p class="center">Successfully added "<%= @equipment.name %>" with tag "<%= @equipment.tag %>" and status "<%= give_status(@equipment.status)%>"</p>
+
+<h2 class= "center">
+<%= link_to "Equipment Index", equipment_index_path %> or
+<%= link_to "Add More Equipment?", addequipment_path %>
+</h2>
+</div>

@@ -1,2 +1,29 @@
-<h1>Equipment#index</h1>
-<p>Find me in app/views/equipment/index.html.erb</p>
+<h1>Equipment Index</h1>
+<h2><%= link_to "Add Equipment", addequipment_path %></h2>
+<div class="boxer">
+	<div class="box-row-head">
+		<div class="box">
+		Tag
+		</div>
+		<div class="box">
+		Name
+		</div>
+		<div class="box">
+		Status
+		</div>
+	</div>
+	
+	<% @equipment.each do |an_equipment|%>
+	<div class="box-row">
+		<div class="box">
+			<%= an_equipment.tag %>
+		</div>
+		<div class="box">
+			<%= an_equipment.name %>
+		</div>
+		<div class="box">
+			<%= give_status(an_equipment.status) %>
+		</div>
+	</div>
+	<% end %>
+</div>
