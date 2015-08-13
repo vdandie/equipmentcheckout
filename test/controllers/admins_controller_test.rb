@@ -13,11 +13,6 @@ class AdminsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-  end
-
   test "should get edit" do
     get :edit, :id => @admin.id
     assert_response :success
@@ -37,5 +32,4 @@ class AdminsControllerTest < ActionController::TestCase
     get :destroy, :id => @admin.id
     assert_response :success
   end
-
 end
