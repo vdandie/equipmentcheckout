@@ -30,7 +30,7 @@ class EquipmentController < ApplicationController
   private 
 
     def equipment_params
-      params.require(:equipment).permit(:tag, :name, :status)
+      params.fetch(:equipment, {}).permit(:tag, :name, :status)
     end
 
 end
