@@ -6,6 +6,7 @@ class EquipmentController < ApplicationController
   def create
     @equipment = Equipment.new(equipment_params)
     if @equipment.save
+      flash[:success] = "Equipment Successfully Added!"
       redirect_to @equipment
     else
       render 'new'
