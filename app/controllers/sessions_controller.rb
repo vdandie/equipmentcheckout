@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
   def create
   	admin = Admin.find_by(email: params[:session][:email].downcase)
   	if admin && admin.authenticate(params[:session][:password])
-  		#log in admin
+  		log_in admin
+  		redirect_to admin
   	else
   		flash.now[:danger] = 'Invalid email or password. Try again.'
   		render 'new'
