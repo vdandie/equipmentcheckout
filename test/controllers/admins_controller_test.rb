@@ -2,10 +2,7 @@ require 'test_helper'
 
 class AdminsControllerTest < ActionController::TestCase
   def setup
-    @admin = Admin.create(name:  "Daniel Swain",
-                          email:  "danieswain@gmail.com",
-                          password:         "foobar",
-                          password_confirmation:  "foobar")
+    @admin = admins(:daniel)
   end
 
   test "should get new" do

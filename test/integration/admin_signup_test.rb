@@ -1,6 +1,9 @@
 require 'test_helper'
 
 class AdminSignupTest < ActionDispatch::IntegrationTest
+	def setup
+		@admin = admins(:daniel)
+	end
 
 	test "invalid admin sign up information" do 
 		get signup_path
@@ -22,5 +25,6 @@ class AdminSignupTest < ActionDispatch::IntegrationTest
 													password_confirmation: 	"foobar" }
 		end
 		assert_template 'admins/show'
+		assert is_logged_in?
 	end
 end
