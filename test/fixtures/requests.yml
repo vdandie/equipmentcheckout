@@ -1,0 +1,26 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+req_for_laptop:
+  name: Jacob
+  email: jacob@example.com
+  sid: 907666661
+  created_at: <%= 10.minutes.ago %>
+
+req_for_tablet:
+  name: Mark
+  email: mark@example.com
+  sid: 907666662
+  created_at: <%= 3.minutes.ago %>
+
+req_for_macbook:
+  name: Jessica
+  email: jessica@example.com
+  sid: 907666663
+  created_at: <%= 2.hours.ago %>
+
+
+most_recent:
+  name: Sara
+  email: sara@example.com
+  sid: 907666664
+  created_at: <%= Time.zone.now %>

@@ -23,7 +23,7 @@ class AdminTest < ActiveSupport::TestCase
 		assert_not @admin.valid?
 	end
 
-	test "name should reject invalid names" do
+	test "name validation should reject invalid names" do
 		invalid_names = [ "@!$%,.1", "./ ^&*()", "=+_ ~`'" ]
 		invalid_names.each do |invalid_name|
 			@admin.name = invalid_name
