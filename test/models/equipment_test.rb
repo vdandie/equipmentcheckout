@@ -73,4 +73,16 @@ class EquipmentTest < ActiveSupport::TestCase
   	assert_not @equipment.valid?
   end
 
+  #~Other Tests~#
+  test "order should be by the tag" do
+    assert_equal equipment(:tablet), Equipment.first
+  end
+
+  test "associated requests should be destroyed" do
+    @equipment.save
+    @equipment.requests.create!(name: "Jacob", email: "jacob@example.com", sid: 907666666)
+    assert_difference 'Request.count', -1 do
+      @equipment.destroy
+    end
+  end
 end

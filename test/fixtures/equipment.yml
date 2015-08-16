@@ -1,7 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+laptop:
+  tag: z9
+  name: MacBook
+  status: false
+
 tablet:
   tag: a1
   name: iPad Mini
   status: true
-

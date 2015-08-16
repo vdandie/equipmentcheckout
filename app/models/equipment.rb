@@ -1,5 +1,7 @@
 class Equipment < ActiveRecord::Base
+	has_many :requests, dependent: :destroy
 	before_save { self.tag.downcase! }
+	default_scope -> { order(tag: :asc) }
 	validates :name, presence: true, 
 					length: { maximum: 50 }
 
