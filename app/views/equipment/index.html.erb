@@ -1,5 +1,5 @@
-<% provide(:title, "Equipment Index") %>
-<h1>Equipment Index</h1>
+<% provide(:title, "All Equipment") %>
+<h1>All Equipment</h1>
 <%= will_paginate %>
 
 <div class="boxer">
@@ -17,29 +17,8 @@
 		Options
 		</div>
 	</div>
-	
-	<% @equipment.each do |an_equipment|%>
-	<div class="box-row">
-		<div class="box">
-			<%= an_equipment.tag %>
-		</div>
-		<div class="box">
-			<%= an_equipment.name %>
-		</div>
-		<div class="box">
-			<%= give_status(an_equipment.status) %>
-		</div>
-		<div class="box dropdown">
-			<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-			<b class="caret"></b>
-			</a>
-			<ul class="dropdown-menu">
-				<li><%= link_to "Edit", edit_equipment_path(an_equipment) %></li>
-				<li><%= link_to "Delete", equipment_path(an_equipment), method: "delete" %></li>
-			</ul>
-		</div>
-	</div>
-	<% end %>
+
+	<%= render @equipment %>
 
 </div>
 <%= will_paginate %>

@@ -40,6 +40,10 @@ class EquipmentController < ApplicationController
 
 
   def destroy
+    @name = Equipment.find(params[:id]).name
+    Equipment.find(params[:id]).destroy
+    flash[:success] = "#{@name} deleted."
+    redirect_to equipment_index_path
   end
 
   private 

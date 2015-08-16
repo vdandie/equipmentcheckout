@@ -1,0 +1,20 @@
+<div class="box-row">
+	<div class="box">
+		<%= equipment.tag %>
+	</div>
+	<div class="box">
+		<%= equipment.name %>
+	</div>
+	<div class="box">
+		<%= give_status(equipment.status) %>
+	</div>
+	<div class="box dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		<b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu">
+			<li><%= link_to "Edit", edit_equipment_path(equipment) %></li>
+			<li><%= link_to "Delete", equipment, method: "delete", data: { confirm: "You sure?" } %></li>
+		</ul>
+	</div>
+</div>
