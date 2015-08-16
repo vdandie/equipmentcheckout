@@ -1,5 +1,4 @@
 class AdminsController < ApplicationController
-http_basic_authenticate_with :name => "hansolo", :password => "chewbacca" #gitignore
 
   def new
     @admin = Admin.new
