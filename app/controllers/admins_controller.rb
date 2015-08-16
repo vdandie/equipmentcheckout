@@ -1,4 +1,5 @@
 class AdminsController < ApplicationController
+
   def new
     @admin = Admin.new
   end
@@ -8,7 +9,7 @@ class AdminsController < ApplicationController
     if @admin.save
       log_in @admin
       flash[:success] = "Admin Successfully Created!"
-      redirect_to @admin
+      redirect_to equipment_index_path
     else
       render 'new'
     end
@@ -23,9 +24,6 @@ class AdminsController < ApplicationController
   end
 
   def destroy
-  end
-
-  def edit
   end
 
   private 

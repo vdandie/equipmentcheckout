@@ -24,7 +24,7 @@ class AdminSignupTest < ActionDispatch::IntegrationTest
 													password: 				"foobar",
 													password_confirmation: 	"foobar" }
 		end
-		assert_template 'admins/show'
+		assert_template 'equipment/index'
 		assert is_logged_in?
 	end
 end

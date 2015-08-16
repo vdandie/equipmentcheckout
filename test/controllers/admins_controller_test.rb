@@ -10,18 +10,8 @@ class AdminsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, :id => @admin.id
-    assert_response :success
-  end
-
   test "should get create" do
     get :create
-    assert_response :success
-  end
-
-  test "should get show" do
-    get :show, :id => @admin.id
     assert_response :success
   end
 

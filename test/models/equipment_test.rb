@@ -2,7 +2,7 @@ require 'test_helper'
 
 class EquipmentTest < ActiveSupport::TestCase
   def setup
-  	@equipment = Equipment.new(tag: "A1", name: "laptop", status: true)
+  	@equipment = equipment(:tablet)
   end
 
   test "should be valid" do

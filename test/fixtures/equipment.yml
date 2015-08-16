@@ -1,11 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  tag: MyString
-  name: MyString
-  status: false
+tablet:
+  tag: a1
+  name: iPad Mini
+  status: true
 
-two:
-  tag: MyString
-  name: MyString
-  status: false
