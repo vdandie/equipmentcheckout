@@ -71,10 +71,4 @@ class EquipmentControllerTest < ActionController::TestCase
     assert_not flash.empty?
     assert_redirected_to login_url
   end
-
-  test "should get destroy" do
-    log_in_as(@admin)
-    get :destroy, :id => @equipment.id
-    assert_response :success
-  end
 end

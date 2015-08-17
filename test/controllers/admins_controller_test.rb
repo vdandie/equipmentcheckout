@@ -14,9 +14,4 @@ class AdminsControllerTest < ActionController::TestCase
     get :create
     assert_response :success
   end
-
-  test "should get destroy" do
-    get :destroy, :id => @admin.id
-    assert_response :success
-  end
 end

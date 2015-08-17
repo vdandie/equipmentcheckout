@@ -15,4 +15,7 @@ class Equipment < ActiveRecord::Base
 					inclusion: { in: [true, false] },
 					exclusion: { in: [nil] }
 
+	def name_with_tag
+    	"#{tag}:#{name}"
+	end
 end

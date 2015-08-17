@@ -1,11 +1,12 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
 	<div class="container">
-	<!-- Remember to change the link_to path to the add request path. -->
 	<%= link_to "ASU Student Union", '/', id: "logo" %>
 	<nav>
 		<ul class="nav navbar-nav navbar-right">
 			<li><%= link_to "Home", root_path %></li>
 		<% if logged_in? %>
+			<li><%= link_to "View Requests", requests_path %>
+			</li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 				Manage Equipment <b class="caret"></b>
@@ -17,7 +18,6 @@
 			</li> 
 			<li><%= link_to "Log Out", logout_path, method: "delete" %>
 		<% else %>
-			<li><%= link_to "Make Request", '#' %></li>
 			<li><%= link_to "Log in", login_path %></li>
 		<% end %>
 		</ul>

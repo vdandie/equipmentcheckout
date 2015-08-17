@@ -1,2 +1,27 @@
-<h1>Requests#index</h1>
-<p>Find me in app/views/requests/index.html.erb</p>
+<% provide(:title, "Requests") %>
+<h1>Requests</h1>
+<%= will_paginate %>
+
+<div class="boxer">
+	<div class="box-row-head">
+		<div class="box">
+		Equipment <br/>Tag: Name
+		</div>
+		<div class="box">
+		Name
+		</div>
+		<div class="box">
+		SID
+		</div>
+		<div class="box">
+		Email
+		</div>
+		<div class="box">
+		Options
+		</div>
+	</div>
+
+	<%= render @requests %>
+
+</div>
+<%= will_paginate %>

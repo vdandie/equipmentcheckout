@@ -38,7 +38,6 @@ class EquipmentController < ApplicationController
     end
   end
 
-
   def destroy
     @name = Equipment.find(params[:id]).name
     Equipment.find(params[:id]).destroy

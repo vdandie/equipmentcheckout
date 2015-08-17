@@ -1,0 +1,25 @@
+<div class="box-row">
+	<div class = "box"> 
+		<%= request.equipment.tag%> :
+		<%= request.equipment.name %>
+	</div>
+	<div class="box">
+		<%= request.name %>
+	</div>
+	<div class="box">
+		<%= request.sid %>
+	</div>
+	<div class="box">
+		<%= request.email %>
+	</div>
+	<div class="box dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		<b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu">
+			<li><%= link_to "Sign Out", '#' %></li>
+			<li><%= link_to "Sign In", '#' %></li>
+			<li><%= link_to "Delete", request, method: "delete", data: { confirm: "You sure?" } %></li>
+		</ul>
+	</div>
+</div>

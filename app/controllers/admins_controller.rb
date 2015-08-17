@@ -1,5 +1,4 @@
 class AdminsController < ApplicationController
-
   def new
     @admin = Admin.new
   end
@@ -17,13 +16,6 @@ class AdminsController < ApplicationController
 
   def show
     @admin = Admin.find(params[:id])
-  end
-
-  def index
-    @admins = Admin.all
-  end
-
-  def destroy
   end
 
   private 
