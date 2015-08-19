@@ -1,27 +1,38 @@
 <% provide(:title, "Requests") %>
 <h1>Requests</h1>
 <%= will_paginate %>
-
-<div class="boxer">
-	<div class="box-row-head">
-		<div class="box">
-		Equipment <br/>Tag: Name
-		</div>
-		<div class="box">
-		Name
-		</div>
-		<div class="box">
-		SID
-		</div>
-		<div class="box">
-		Email
-		</div>
-		<div class="box">
-		Options
-		</div>
-	</div>
-
-	<%= render @requests %>
-
+<div class="table-responsive">
+	<table class="table table-striped">
+		<tr>
+			<th>
+			Equipment<br/>Tag : Name
+			</th>
+			<th>
+			Name
+			</th>
+			<th>
+			907#
+			</th>
+			<th>
+			Email
+			</th>
+			<th>
+			Sign Out<br/>Admin Name
+			</th>
+			<th>
+			Timestamp
+			</th>
+			<th>
+			Sign In<br/>Admin Name
+			</th>
+			<th>
+			Timestamp
+			</th>
+			<th>
+			Options
+			</th>
+		</tr>
+		<%= render @requests %>
+	</table>
 </div>
 <%= will_paginate %>

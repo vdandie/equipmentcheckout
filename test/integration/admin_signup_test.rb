@@ -5,7 +5,8 @@ class AdminSignupTest < ActionDispatch::IntegrationTest
 		@admin = admins(:daniel)
 	end
 
-	test "invalid admin sign up information" do 
+	test "invalid admin sign up information" do
+    	log_in_as(@admin) 
 		get signup_path
 		assert_no_difference 'Admin.count' do
 			post admins_path, admin: { 	name: 	"",
@@ -17,6 +18,7 @@ class AdminSignupTest < ActionDispatch::IntegrationTest
 	end
 
 	test "valid admin sign up information" do
+    	log_in_as(@admin)
 		get signup_path
 		assert_difference 'Admin.count', 1 do
 			post_via_redirect admins_path, admin: { name: 	"Daniel Swain",

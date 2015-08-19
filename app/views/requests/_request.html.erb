@@ -1,25 +1,54 @@
-<div class="box-row">
-	<div class = "box"> 
-		<%= request.equipment.tag%> :
+<tr>
+	<td> 
+		<%= request.equipment.tag %> :
 		<%= request.equipment.name %>
-	</div>
-	<div class="box">
+	</td>
+	<td>
 		<%= request.name %>
-	</div>
-	<div class="box">
+	</td>
+	<td>
 		<%= request.sid %>
-	</div>
-	<div class="box">
+	</td>
+	<td>
 		<%= request.email %>
-	</div>
-	<div class="box dropdown">
+	</td>
+	<% if !SignOut.where(:request_id => request.id).blank? %>
+		<td>
+			<%= request.signed_out_by.name%>
+		</td>
+		<td>
+			<%= sign_out_date(request) %>
+		</td>
+	<% else %>
+		<td>
+			--
+		</td>
+		<td>
+			--
+		</td>
+	<% end %>
+	<td>
+
+	</td>
+	<td>
+		
+	</td>
+	<td class="dropdown">
 		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 		<b class="caret"></b>
 		</a>
 		<ul class="dropdown-menu">
-			<li><%= link_to "Sign Out", '#' %></li>
+			<li>
+				<div id="sign_out_form">
+					<% if request.signed_out_by.count < 1 %>
+						<%= render 'sign_out', :request => request %>
+					<% else %>
+						<%= render 'undo_sign_out', :request => request %>
+					<% end %>
+				</div>
+			</li>
 			<li><%= link_to "Sign In", '#' %></li>
 			<li><%= link_to "Delete", request, method: "delete", data: { confirm: "You sure?" } %></li>
 		</ul>
-	</div>
-</div>
+	</td>
+</tr>

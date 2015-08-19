@@ -8,6 +8,6 @@ class CreateSignOuts < ActiveRecord::Migration
     end
     add_index :sign_outs, :admin_id
     add_index :sign_outs, :request_id
-    add_index :sign_outs, [:admin_id, :request_id], unique: true
+    add_index :sign_outs, [:admin_id, :request_id]
   end
 end

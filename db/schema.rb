@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817133533) do
+ActiveRecord::Schema.define(version: 20150817183326) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "name"
@@ -44,17 +44,6 @@ ActiveRecord::Schema.define(version: 20150817133533) do
 
   add_index "requests", ["equipment_id"], name: "index_requests_on_equipment_id"
 
-  create_table "sign_ins", force: :cascade do |t|
-    t.integer  "admin_id"
-    t.integer  "request_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "sign_ins", ["admin_id", "request_id"], name: "index_sign_ins_on_admin_id_and_request_id", unique: true
-  add_index "sign_ins", ["admin_id"], name: "index_sign_ins_on_admin_id"
-  add_index "sign_ins", ["request_id"], name: "index_sign_ins_on_request_id"
-
   create_table "sign_outs", force: :cascade do |t|
     t.integer  "admin_id"
     t.integer  "request_id"
@@ -62,7 +51,7 @@ ActiveRecord::Schema.define(version: 20150817133533) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "sign_outs", ["admin_id", "request_id"], name: "index_sign_outs_on_admin_id_and_request_id", unique: true
+  add_index "sign_outs", ["admin_id", "request_id"], name: "index_sign_outs_on_admin_id_and_request_id"
   add_index "sign_outs", ["admin_id"], name: "index_sign_outs_on_admin_id"
   add_index "sign_outs", ["request_id"], name: "index_sign_outs_on_request_id"
 

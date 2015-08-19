@@ -1,0 +1,5 @@
+<%= form_for(current_admin.active_sign_outs.find_by(request_id: request.id),
+							html: { method: :delete },
+							remote: true) do |f| %>
+  							<%= f.submit "Undo Sign Out", class: "btn", data: { confirm: "You sure?"} %>
+						<% end %>

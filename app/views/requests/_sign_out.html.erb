@@ -1,0 +1,5 @@
+<%= form_for(current_admin.active_sign_outs.build, 
+							remote: true) do |f| %>
+							<div><%= hidden_field_tag :request_id, request.id %></div>
+							<%= f.submit "Sign Out" %>
+						<% end %>

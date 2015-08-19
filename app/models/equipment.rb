@@ -18,4 +18,8 @@ class Equipment < ActiveRecord::Base
 	def name_with_tag
     	"#{tag}:#{name}"
 	end
+
+	def set_to_out
+		status = false
+	end
 end

@@ -96,4 +96,21 @@ class AdminTest < ActiveSupport::TestCase
 			assert @admin.valid?, "#{valid_password} should be accepted."
 		end
 	end
+
+	#~Other Tests~#
+	test "should signout request" do
+		daniel = admins(:daniel)
+		macbook_request = requests(:macbook)
+		macbook = equipment(:laptop)
+		macbook_request.equipment_id = macbook.id
+
+		assert_not daniel.signed_out?(macbook_request)
+		daniel.sign_out(macbook_request)
+		assert daniel.signed_out?(macbook_request)
+		assert_not macbook_request.equipment.status
+		assert macbook_request.signed_out_by.include?(daniel)
+		daniel.undo_sign_out(macbook_request)
+		assert_not daniel.signed_out?(macbook_request)
+		assert macbook_request.equipment.status
+	end
 end

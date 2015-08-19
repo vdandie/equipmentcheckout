@@ -1,0 +1,2 @@
+$("#sign_out_form").html("<%= escape_javascript(render('requests/undo_sign_out')) %>");
+$("#signed_out_by").html('<%= @request.signed_out_by.count %>');

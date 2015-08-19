@@ -8,6 +8,6 @@ class CreateSignIns < ActiveRecord::Migration
     end
     add_index :sign_ins, :admin_id
     add_index :sign_ins, :request_id
-    add_index :sign_ins, [:admin_id, :request_id], unique: true
+    add_index :sign_ins, [:admin_id, :request_id] 
   end
 end

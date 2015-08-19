@@ -100,13 +100,14 @@ footer {
 .boxer {
 	display: table;
    	border-collapse: collapse;
-   	width: 600px;
+   	width: 100%;
    	margin: 0 auto;
 
    	.box-row-head {
    		display: table-row;
    		padding: 10px;
    		font-weight: bold;
+   		vertical-align: bottom;
 
    	}
 

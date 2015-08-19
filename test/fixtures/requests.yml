@@ -12,7 +12,7 @@ req_for_tablet:
   sid: 907666662
   created_at: <%= 3.minutes.ago %>
 
-req_for_macbook:
+macbook:
   name: Jessica
   email: jessica@example.com
   sid: 907666663

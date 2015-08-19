@@ -1,4 +1,8 @@
 class Request < ActiveRecord::Base
+  has_many :passive_sign_outs, class_name: "SignOut",
+                foreign_key: "request_id",
+                dependent:  :destroy
+  has_many :signed_out_by, through: :passive_sign_outs, source: :admin
   belongs_to :equipment
   before_save { self.email.downcase! }
   default_scope -> { order(created_at: :desc) }
