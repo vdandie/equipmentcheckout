@@ -62,9 +62,11 @@ class Admin < ActiveRecord::Base
 
 	# Undos a sign in on a request
 	def undo_sign_in(a_request)
-		@equipment = a_request.equipment
-		@equipment.update_attribute :status, false
-		@equipment.save
+		if signed_out.include?(a_request)
+			@equipment = a_request.equipment
+			@equipment.update_attribute :status, false
+			@equipment.save
+		end
 		active_sign_ins.find_by(request_id: a_request.id).destroy
 	end
 

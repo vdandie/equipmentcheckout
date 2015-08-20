@@ -13,6 +13,7 @@ class Request < ActiveRecord::Base
   VALID_NAME_REGEX = /\A[\p{L}\s'.-]+\z/
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_SID_REGEX = /\A(907)+(\d{6})\z/
+
   validates :equipment_id, presence: true
   validates :name, presence: true,
 					length: { maximum: 100 },
