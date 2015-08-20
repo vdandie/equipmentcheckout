@@ -1,0 +1,5 @@
+<%= form_for(SignIn.find_by(request_id: request.id),
+							html: { method: :delete },
+							remote: true) do |f| %>
+  							<%= f.submit "Undo Sign In", class: "btn", data: { confirm: "You sure?"} %>
+						<% end %>

@@ -1,0 +1,16 @@
+<tr>
+	<td>
+		<%= admin.name %>
+	</td>
+	<td>
+		<%= admin.email %>
+	</td>
+	<td class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		<b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu">
+			<li><%= link_to "Delete", admin, method: "delete", data: { confirm: "You sure?" } if admin.id != current_admin.id %></li>
+		</ul>
+	</td>
+</tr>

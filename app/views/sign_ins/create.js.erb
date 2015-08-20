@@ -1,0 +1,2 @@
+$("#sign_in_form").html("<%= escape_javascript(render('requests/sign_in')) %>");
+$("#signed_in_by").html('<%= @request.signed_in_by.count %>');

@@ -3,6 +3,10 @@ class Admin < ActiveRecord::Base
 								foreign_key: "admin_id",
 								dependent: 	:destroy
 	has_many :signed_out, through: :active_sign_outs, source: :request
+	has_many :active_sign_ins, class_name: "SignIn",
+								foreign_key: "admin_id",
+								dependent: 	:destroy
+	has_many :signed_in, through: :active_sign_ins, source: :request
 
 	before_save { self.email.downcase! }
 	VALID_NAME_REGEX = /\A[\p{L}\s'.-]+\z/
@@ -46,5 +50,26 @@ class Admin < ActiveRecord::Base
 	# Returns true if current admin signed out request
 	def signed_out?(request)
 		signed_out.include?(request)
+	end
+
+	# Signs in a Request
+	def sign_in(request)
+		active_sign_ins.create(request_id: request.id)
+		@equipment = request.equipment
+		@equipment.update_attribute :status, true
+		@equipment.save
+	end
+
+	# Undos a sign in on a request
+	def undo_sign_in(a_request)
+		@equipment = a_request.equipment
+		@equipment.update_attribute :status, false
+		@equipment.save
+		active_sign_ins.find_by(request_id: a_request.id).destroy
+	end
+
+	# Returns true if current admin signed in request
+	def signed_in?(request)
+		signed_in.include?(request)
 	end
 end

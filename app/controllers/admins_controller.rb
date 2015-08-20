@@ -20,11 +20,13 @@ class AdminsController < ApplicationController
   end
 
   def destroy
-    Admin.find(params[:id]).destroy
+    @admin = Admin.find(params[:id])
+    @name = @admin.name
+    @admin.destroy
   end
 
   def index
-    @admins = Admin.all
+    @admins = Admin.paginate(page: params[:page])
   end
 
   private 

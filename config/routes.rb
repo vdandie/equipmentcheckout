@@ -11,9 +11,11 @@ Rails.application.routes.draw do
   resources :admins do
     member do
       get :signed_out, :signed_out_by
+      get :signed_in, :signed_in_by
     end
   end
   resources :equipment
-  resources :requests
+  resources :requests,  only: [:new, :create, :index, :destroy]
   resources :sign_outs,   only: [:create, :destroy]
+  resources :sign_ins,   only: [:create, :destroy]
 end

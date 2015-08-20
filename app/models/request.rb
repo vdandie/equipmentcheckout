@@ -3,6 +3,10 @@ class Request < ActiveRecord::Base
                 foreign_key: "request_id",
                 dependent:  :destroy
   has_many :signed_out_by, through: :passive_sign_outs, source: :admin
+  has_many :passive_sign_ins, class_name: "SignIn",
+                foreign_key: "request_id",
+                dependent:  :destroy
+  has_many :signed_in_by, through: :passive_sign_ins, source: :admin
   belongs_to :equipment
   before_save { self.email.downcase! }
   default_scope -> { order(created_at: :desc) }
@@ -19,4 +23,12 @@ class Request < ActiveRecord::Base
 	validates :sid, presence: true,
 					length: { minimum: 9, maximum: 9},
 					format: { with: VALID_SID_REGEX }
+
+  def signed_out?
+    passive_sign_outs.count > 0
+  end
+
+  def signed_in?
+    passive_sign_ins.count > 0
+  end
 end

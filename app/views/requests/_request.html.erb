@@ -14,7 +14,7 @@
 	</td>
 	<% if !SignOut.where(:request_id => request.id).blank? %>
 		<td>
-			<%= request.signed_out_by.name%>
+			<%= get_admin_name_from_sign_out(request) %>
 		</td>
 		<td>
 			<%= sign_out_date(request) %>
@@ -27,12 +27,21 @@
 			--
 		</td>
 	<% end %>
-	<td>
-
-	</td>
-	<td>
-		
-	</td>
+	<% if !SignIn.where(:request_id => request.id).blank? %>
+		<td>
+			<%= get_admin_name_from_sign_in(request) %>
+		</td>
+		<td>
+			<%= sign_in_date(request) %>
+		</td>
+	<% else %>
+		<td>
+			--
+		</td>
+		<td>
+			--
+		</td>
+	<% end %>
 	<td class="dropdown">
 		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 		<b class="caret"></b>
@@ -47,7 +56,15 @@
 					<% end %>
 				</div>
 			</li>
-			<li><%= link_to "Sign In", '#' %></li>
+			<li>
+				<div id="sign_in_form">
+					<% if request.signed_in_by.count < 1 %>
+						<%= render 'sign_in', :request => request %>
+					<% else %>
+						<%= render 'undo_sign_in', :request => request %>
+					<% end %>
+				</div>
+			</li>
 			<li><%= link_to "Delete", request, method: "delete", data: { confirm: "You sure?" } %></li>
 		</ul>
 	</td>

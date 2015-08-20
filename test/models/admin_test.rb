@@ -113,4 +113,20 @@ class AdminTest < ActiveSupport::TestCase
 		assert_not daniel.signed_out?(macbook_request)
 		assert macbook_request.equipment.status
 	end
+
+	test "should signin request" do
+		daniel = admins(:daniel)
+		macbook_request = requests(:macbook)
+		macbook = equipment(:laptop)
+		macbook_request.equipment_id = macbook.id
+
+		assert_not daniel.signed_in?(macbook_request)
+		daniel.sign_in(macbook_request)
+		assert daniel.signed_in?(macbook_request)
+		assert macbook_request.equipment.status
+		assert macbook_request.signed_in_by.include?(daniel)
+		daniel.undo_sign_in(macbook_request)
+		assert_not daniel.signed_in?(macbook_request)
+		assert_not macbook_request.equipment.status
+	end
 end

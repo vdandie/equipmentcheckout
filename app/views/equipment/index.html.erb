@@ -1,24 +1,23 @@
 <% provide(:title, "All Equipment") %>
-<h1>All Equipment</h1>
+<h1>Equipment</h1>
 <%= will_paginate %>
-
-<div class="boxer">
-	<div class="box-row-head">
-		<div class="box">
-		Tag
-		</div>
-		<div class="box">
-		Name
-		</div>
-		<div class="box">
-		Status
-		</div>
-		<div class="box">
-		Options
-		</div>
-	</div>
-
-	<%= render @equipment %>
-
+<div class="table-responsive">
+	<table class="table table-striped">
+		<tr>
+			<th>
+			Tag
+			</th>
+			<th>
+			Name
+			</th>
+			<th>
+			Status
+			</th>
+			<th>
+			Options
+			</th>
+		</tr>
+		<%= render @equipment %>
+	</table>
 </div>
 <%= will_paginate %>
