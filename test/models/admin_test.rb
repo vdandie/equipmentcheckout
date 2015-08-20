@@ -77,7 +77,7 @@ class AdminTest < ActiveSupport::TestCase
 	end
 
 	test "password should have a maximum length" do
-		@admin.password = @admin.password_confirmation = "a" * 9
+		@admin.password = @admin.password_confirmation = "a" * 17
 		assert_not @admin.valid?
 	end
 
@@ -127,6 +127,6 @@ class AdminTest < ActiveSupport::TestCase
 		assert macbook_request.signed_in_by.include?(daniel)
 		daniel.undo_sign_in(macbook_request)
 		assert_not daniel.signed_in?(macbook_request)
-		assert_not macbook_request.equipment.status
+		assert macbook_request.equipment.status
 	end
 end

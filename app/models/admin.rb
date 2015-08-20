@@ -21,7 +21,7 @@ class Admin < ActiveRecord::Base
 					uniqueness: { case_sensitive: false }
 	has_secure_password
 	validates :password, presence: true,
-						length: { minimum: 4, maximum: 8 },
+						length: { minimum: 4, maximum: 16 },
 						format: { with: VALID_PASSWORD_REGEX }
 
 	# Returns the hash digest of the given string.
