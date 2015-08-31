@@ -27,7 +27,7 @@ class EquipmentTest < ActiveSupport::TestCase
   end
 
   test "tag should not be too long" do
-  	@equipment.tag = "a" * 8
+  	@equipment.tag = "a" * 9
   	assert_not @equipment.valid?
   end
 
