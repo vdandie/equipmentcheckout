@@ -39,7 +39,7 @@ class EquipmentTest < ActiveSupport::TestCase
   end
 
   test "tag validation should accept valid tags" do
-  	valid_tags = %w[raaa223 D2 c21345 Pa10 Laptop20 12345678 1]
+  	valid_tags = %w[raaa223 D2 c21345 Pa10 Laptop20 a2345678]
   	valid_tags.each do |valid_tag|
   		@equipment.tag = valid_tag
   		assert @equipment.valid?, "#{valid_tag} should be valid"
