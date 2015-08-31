@@ -7,7 +7,7 @@ class Equipment < ActiveRecord::Base
 
 	VALID_TAG_REGEX = /\A[a-zA-Z]\d\z/i
 	validates :tag, presence: true,
-					length: { maximum: 2 },
+					length: { maximum: 8 },
 					format: { with: VALID_TAG_REGEX },
 					uniqueness: { case_sensitive: false }
 
