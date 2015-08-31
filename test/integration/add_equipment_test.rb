@@ -7,7 +7,7 @@ class AddEquipmentTest < ActionDispatch::IntegrationTest
 		get addequipment_path
 		assert_no_difference 'Equipment.count' do
 			post equipment_index_path, equipment:{ name: "",
-											 tag: "aaa",
+											 tag: "aaa.[,",
 											 status: nil }
 		end
 		assert_template 'equipment/new'
