@@ -6,7 +6,7 @@ class ChangeEquipmentStatusColumn < ActiveRecord::Migration
 
   def data
   	Equipment.find_each do |e|
-  		e.status = 1
+  		e.status = 2
   		e.save!
   	end
   end
