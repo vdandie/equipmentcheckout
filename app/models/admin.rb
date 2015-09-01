@@ -35,14 +35,14 @@ class Admin < ActiveRecord::Base
 	def sign_out(request)
 		active_sign_outs.create(request_id: request.id)
 		@equipment = request.equipment
-		@equipment.update_attribute :status, false
+		@equipment.update_attribute :status, 1
 		@equipment.save
 	end
 
 	# Undos a sign out on a request
 	def undo_sign_out(a_request)
 		@equipment = a_request.equipment
-		@equipment.update_attribute :status, true
+		@equipment.update_attribute :status, 2
 		@equipment.save
 		active_sign_outs.find_by(request_id: a_request.id).destroy
 	end
@@ -56,7 +56,7 @@ class Admin < ActiveRecord::Base
 	def sign_in(request)
 		active_sign_ins.create(request_id: request.id)
 		@equipment = request.equipment
-		@equipment.update_attribute :status, true
+		@equipment.update_attribute :status, 2
 		@equipment.save
 	end
 
@@ -64,7 +64,7 @@ class Admin < ActiveRecord::Base
 	def undo_sign_in(a_request)
 		if signed_out.include?(a_request)
 			@equipment = a_request.equipment
-			@equipment.update_attribute :status, false
+			@equipment.update_attribute :status, 1
 			@equipment.save
 		end
 		active_sign_ins.find_by(request_id: a_request.id).destroy

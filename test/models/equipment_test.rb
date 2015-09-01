@@ -62,15 +62,23 @@ class EquipmentTest < ActiveSupport::TestCase
 
   #~Status Tests~#
   test "status should be present" do
-  	@equipment.status = nil
+  	@equipment.status = 0
   	assert_not @equipment.valid?
   end
 
-  test "status should be either true or false" do
-  	@equipment.status = true
-  	assert @equipment.valid?
-  	@equipment.status = false
-  	assert_not @equipment.valid?
+  test "status should be either IN or OUT" do
+  	@equipment.status = 2
+  	assert @equipment.valid? # IN
+  	@equipment.status = 1
+  	assert @equipment.valid? # OUT
+  end
+
+  test "status should reject other numbers" do
+    invalid_statuses = [0, 3, 22, 100]
+    invalid_statuses.each do |invalid_status|
+      @equipment.status = invalid_status
+      assert_not @equipment.valid?, "#{invalid_status} should be invalid"
+    end
   end
 
   #~Other Tests~#

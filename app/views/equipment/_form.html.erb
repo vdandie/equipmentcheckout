@@ -10,7 +10,7 @@
 			<%= f.text_field :tag, class: 'form-control' %>
 
 			<%= f.label :status %>
-			<%= f.select :status, options_for_select([["IN", true],["OUT", false]], @equipment.status)%>
+			<%= f.select :status, options_for_select([["IN", 2],["OUT", 1]], @equipment.status)%>
 
 			<%= f.submit "Add", class: "btn btn-primary" %>
 		<% end %>

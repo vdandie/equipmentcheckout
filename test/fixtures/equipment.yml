@@ -3,9 +3,9 @@
 laptop:
   tag: z9
   name: MacBook
-  status: false
+  status: 1
 
 tablet:
   tag: a1
   name: iPad Mini
-  status: true
+  status: 2

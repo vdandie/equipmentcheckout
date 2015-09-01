@@ -8,7 +8,7 @@ class AddEquipmentTest < ActionDispatch::IntegrationTest
 		assert_no_difference 'Equipment.count' do
 			post equipment_index_path, equipment:{ name: "",
 											 tag: "aaa.[,",
-											 status: nil }
+											 status: 0 }
 		end
 		assert_template 'equipment/new'
 	end
@@ -20,7 +20,7 @@ class AddEquipmentTest < ActionDispatch::IntegrationTest
 			post_via_redirect equipment_index_path, 
 			equipment: { name: "macbook",
 						tag: "z9",
-						status: true}
+						status: 2 }
 		end
 		assert_template 'equipment/show'
 	end

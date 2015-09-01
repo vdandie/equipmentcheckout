@@ -107,11 +107,11 @@ class AdminTest < ActiveSupport::TestCase
 		assert_not daniel.signed_out?(macbook_request)
 		daniel.sign_out(macbook_request)
 		assert daniel.signed_out?(macbook_request)
-		assert_not macbook_request.equipment.status
+		assert_equal 1, macbook_request.equipment.status # i.e. assert false
 		assert macbook_request.signed_out_by.include?(daniel)
 		daniel.undo_sign_out(macbook_request)
 		assert_not daniel.signed_out?(macbook_request)
-		assert macbook_request.equipment.status
+		assert_equal 2, macbook_request.equipment.status # i.e. assert true
 	end
 
 	test "should signin request" do
@@ -123,10 +123,10 @@ class AdminTest < ActiveSupport::TestCase
 		assert_not daniel.signed_in?(macbook_request)
 		daniel.sign_in(macbook_request)
 		assert daniel.signed_in?(macbook_request)
-		assert macbook_request.equipment.status
+		assert_equal 2, macbook_request.equipment.status # i.e. assert true
 		assert macbook_request.signed_in_by.include?(daniel)
 		daniel.undo_sign_in(macbook_request)
 		assert_not daniel.signed_in?(macbook_request)
-		assert macbook_request.equipment.status
+		assert_equal 1, macbook_request.equipment.status # i.e. assert false
 	end
 end

@@ -12,7 +12,7 @@ class EquipmentEditTest < ActionDispatch::IntegrationTest
   	assert_template 'equipment/edit'
   	patch equipment_path(@equipment), equipment: { 	tag: "aaa",
   													name: "",
-  													status: nil }
+  													status: 0 }
  	assert_template 'equipment/edit'
   end
 
@@ -24,7 +24,7 @@ class EquipmentEditTest < ActionDispatch::IntegrationTest
   	name	=	"laptop"
   	patch equipment_path(@equipment), equipment: { 	tag: tag,
   													name: name,
-  													status: true }
+  													status: 2 }
   	assert_not flash.empty?
   	assert_redirected_to @equipment
   	@equipment.reload
@@ -40,7 +40,7 @@ class EquipmentEditTest < ActionDispatch::IntegrationTest
   	name	=	"laptop"
   	patch equipment_path(@equipment), equipment: { 	tag: tag,
   													name: name,
-  													status: true }
+  													status: 2 }
   	assert_not flash.empty?
   	assert_redirected_to @equipment
   	@equipment.reload
