@@ -60,7 +60,7 @@ class Admin < ActiveRecord::Base
 		@equipment.save
 	end
 
-	# Undos a sign in on a request
+	# Undos a sign in on a request and sets eq. status to OUT (1)
 	def undo_sign_in(a_request)
 		if signed_out.include?(a_request)
 			@equipment = a_request.equipment

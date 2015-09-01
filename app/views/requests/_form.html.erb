@@ -4,7 +4,7 @@
 			<%= render 'shared/error_messages', object: f.object %>
 
 			<%= f.label "Equipment" %>
-			<%= collection_select(:equipment, :tag, Equipment.where(status: true), :tag, :name_with_tag) %>
+			<%= collection_select(:equipment, :tag, Equipment.where(status: 2), :tag, :name_with_tag) %>
 
 			<%= f.label :name %>
 			<%= f.text_field :name, class: 'form-control' %>
